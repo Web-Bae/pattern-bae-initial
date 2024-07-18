@@ -6,14 +6,19 @@
 
   const patterns: { [key: string]: Pattern } = {
     "pattern-1": {
-      name: "Horizontal Lines",
+      name: "Horizontal",
       backgroundImage:
         "linear-gradient(0deg, rgb(0, 0, 0) 50%, rgb(255, 255, 255) 50%)",
     },
     "pattern-2": {
-      name: "Vertical Lines",
+      name: "Vertical",
       backgroundImage:
         "linear-gradient(to right, rgb(0,0,0), rgb(0,0,0) 5px, rgb(255,255,255) 5px, rgb(255,255,255))",
+    },
+    "pattern-3": {
+      name: "Diagonal",
+      backgroundImage:
+        "linear-gradient(45deg, rgb(0, 0, 0) 25%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 75%, rgb(255, 255, 255) 75%, rgb(255, 255, 255))",
     },
   };
 
@@ -21,52 +26,46 @@
     event: Event,
     patternKey: keyof typeof patterns
   ) {
-    // set the app background to the same pattern
-    // as the button that was clicked
-    console.log(patternKey);
     const pattern = patterns[patternKey];
-    console.log(pattern);
 
-    // document.body.style.backgroundImage = pattern.backgroundImage;
-    const patternList = document.querySelector<HTMLDivElement>(".pattern-list");
-    if (!patternList) return;
-    patternList.style.backgroundImage = pattern.backgroundImage;
-    patternList.style.backgroundSize = "10px 10px";
+    const patternSection =
+      document.querySelector<HTMLDivElement>(".section-pattern");
+    if (!patternSection) return;
+    patternSection.style.backgroundImage = pattern.backgroundImage;
+    patternSection.style.backgroundSize = "10px 10px";
   }
 </script>
 
 <main>
-  <h1>Pattern Bae</h1>
-  <div class="pattern-list">
-    {#each Object.keys(patterns) as pattern}
-      <button
-        class="pattern-button"
-        on:click={(event) => handlePatternButtonClick(event, pattern)}
-      >
-        <div class="pattern-box">
-          <div
-            class="pattern"
-            style="background-image: {patterns[pattern].backgroundImage}"
+  <section class="section-pattern">
+    <div class="container">
+      <div class="pattern-list">
+        {#each Object.keys(patterns) as pattern}
+          <button
+            class="pattern-button"
+            on:click={(event) => handlePatternButtonClick(event, pattern)}
           >
-            <h2 class="pattern-name">{patterns[pattern].name}</h2>
-          </div>
-        </div>
-      </button>
-    {/each}
-  </div>
+            <div
+              class="pattern-box"
+              style="background-image: {patterns[pattern].backgroundImage}"
+            >
+              <h2 class="pattern-name">{patterns[pattern].name}</h2>
+            </div>
+          </button>
+        {/each}
+      </div>
+    </div>
+  </section>
 </main>
 
 <style>
-  .pattern-box {
-    display: flex;
-    flex-direction: column;
+  .container {
+    padding: 1rem;
   }
-  .pattern {
-    padding: 10px;
-    margin: 10px 0;
-    background-size: 10px 10px;
-    color: white;
-    text-align: center;
+  .pattern-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
   }
   .pattern-button {
     width: 100%;
@@ -76,11 +75,24 @@
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .pattern-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    background-size: 10px 10px;
+    padding-bottom: 0.5rem;
   }
   .pattern-name {
-    margin: 0;
+    padding: 0.25rem;
     font-size: small;
     background-color: white;
     color: black;
+    border-radius: 4px;
   }
 </style>

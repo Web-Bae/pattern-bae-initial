@@ -1,1 +1,1 @@
-declare module "@xatom/wf-svelte-hot-reload";
+declare module "@xatom/wf-app-hot-reload";
