@@ -1,5 +1,6 @@
 {
   "name": "Pattern Bae",
-  "size": "compact",
-  "publicDir": "dist"
+  "size": "comfortable",
+  "publicDir": "dist",
+  "apiVersion": "2"
 }

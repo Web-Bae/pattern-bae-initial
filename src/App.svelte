@@ -1,4 +1,23 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  let selectedElement: AnyElement | null;
+  onMount(async () => {
+    webflow.subscribe("selectedelement", setSelectedElement);
+  });
+
+  function setSelectedElement(element: AnyElement | null) {
+    selectedElement = element;
+  }
+
+  async function createWebflowElement() {
+    if (!selectedElement) return;
+
+    const newDiv = await selectedElement.after(webflow.elementPresets.DivBlock);
+
+    console.log(`${JSON.stringify(newDiv)}`);
+  }
+
   type Pattern = {
     name: string;
     backgroundImage: string;
@@ -37,6 +56,14 @@
 </script>
 
 <main>
+  <section>
+    <div class="container">
+      {#if selectedElement}
+        <p>{selectedElement.type}</p>
+        <button on:click={createWebflowElement}>Create Div</button>
+      {/if}
+    </div>
+  </section>
   <section class="section-pattern">
     <div class="container">
       <div class="pattern-list">

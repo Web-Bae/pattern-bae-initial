@@ -15,11 +15,11 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
       '@webflow/designer-extension-typings':
-        specifier: ^0.1.12
-        version: 0.1.12
+        specifier: 0.2.0-beta.13
+        version: 0.2.0-beta.13
       '@xatom/wf-app-hot-reload':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.2
+        version: 1.0.2
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
@@ -309,11 +309,11 @@ packages:
   '@types/pug@2.0.10':
     resolution: {integrity: sha512-Sk/uYFOBAB7mb74XcpizmH0KOR2Pv3D2Hmrh1Dmy5BmK3MpdSa5kqZcg6EKBdklU0bFXX9gCfzvpnyUehrPIuA==}
 
-  '@webflow/designer-extension-typings@0.1.12':
-    resolution: {integrity: sha512-VgoV1oaTLyIQycqbnmFSKm7oxgb1M0md8fd9zR3GPMpj9y3JH2ZrttysXeM4s978Ls+9PTB7YD2JdaqImbV1FQ==}
+  '@webflow/designer-extension-typings@0.2.0-beta.13':
+    resolution: {integrity: sha512-8OjdzaogGyWyBZranWa0MOjKdCE9CRTD3C0/s1+Ifbccw5kixhovDsLebbgrI3LsOrTSSwKV7KEDxdkfgxM2ww==}
 
-  '@xatom/wf-app-hot-reload@1.0.1':
-    resolution: {integrity: sha512-NrtgbHWZeZcR924YVLtB37scW7OWNyOzwrypRerRWIGGsesCHeCKX1NB082UYaEOzQUFe4yqU25uhwlCqLjnOQ==}
+  '@xatom/wf-app-hot-reload@1.0.2':
+    resolution: {integrity: sha512-JBLXEhoU3cw/WxsovSexdiJ8+z2vm44gldnioGx93R0dsnUbKEM2b4M2GaxdcTnLSkCpm/UkvglMI9KH5v11xQ==}
 
   acorn@8.12.1:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
@@ -925,9 +925,9 @@ snapshots:
 
   '@types/pug@2.0.10': {}
 
-  '@webflow/designer-extension-typings@0.1.12': {}
+  '@webflow/designer-extension-typings@0.2.0-beta.13': {}
 
-  '@xatom/wf-app-hot-reload@1.0.1': {}
+  '@xatom/wf-app-hot-reload@1.0.2': {}
 
   acorn@8.12.1: {}
 
