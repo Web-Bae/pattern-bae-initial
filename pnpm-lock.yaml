@@ -17,6 +17,9 @@ importers:
       '@webflow/designer-extension-typings':
         specifier: ^0.1.12
         version: 0.1.12
+      '@xatom/wf-svelte-hot-reload':
+        specifier: ^1.0.3
+        version: 1.0.3
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
@@ -308,6 +311,9 @@ packages:
 
   '@webflow/designer-extension-typings@0.1.12':
     resolution: {integrity: sha512-VgoV1oaTLyIQycqbnmFSKm7oxgb1M0md8fd9zR3GPMpj9y3JH2ZrttysXeM4s978Ls+9PTB7YD2JdaqImbV1FQ==}
+
+  '@xatom/wf-svelte-hot-reload@1.0.3':
+    resolution: {integrity: sha512-hlKVJAUYq+ommQNuAeDnpt3wQP6UTkkKuVeGW0Nwmmm+qpwEj+JFuv651aidAbHv6LX1Zu0zXhQAlLTK19Qp7w==}
 
   acorn@8.12.1:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
@@ -920,6 +926,8 @@ snapshots:
   '@types/pug@2.0.10': {}
 
   '@webflow/designer-extension-typings@0.1.12': {}
+
+  '@xatom/wf-svelte-hot-reload@1.0.3': {}
 
   acorn@8.12.1: {}
 
