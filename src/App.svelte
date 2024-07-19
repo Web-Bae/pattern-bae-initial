@@ -1,8 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let selectedElement: AnyElement | null;
-  onMount(async () => {
+  let selectedElement: AnyElement | null = null;
+  let selectedPatternKey: string;
+
+  onMount(() => {
     webflow.subscribe("selectedelement", setSelectedElement);
   });
 
@@ -13,9 +15,24 @@
   async function createWebflowElement() {
     if (!selectedElement) return;
 
-    const newDiv = await selectedElement.after(webflow.elementPresets.DivBlock);
+    const blankDiv = await selectedElement.after(
+      webflow.elementPresets.DivBlock
+    );
+    const divWithStyles = await setElementStyles(blankDiv);
 
-    console.log(`${JSON.stringify(newDiv)}`);
+    console.log(`${JSON.stringify(divWithStyles)}`);
+  }
+
+  async function setElementStyles(newDiv: BlockElement) {
+    const newStyle = await webflow.createStyle(`pattern-bae-${Date.now()}`);
+
+    newStyle.setProperties({
+      "background-image": patterns[selectedPatternKey].backgroundImage,
+      "background-size": "10px 10px",
+    });
+
+    await newDiv.setStyles([newStyle]);
+    return newDiv;
   }
 
   type Pattern = {
@@ -41,11 +58,10 @@
     },
   };
 
-  function handlePatternButtonClick(
-    event: Event,
-    patternKey: keyof typeof patterns
-  ) {
+  function handlePatternButtonClick(event: Event, patternKey: string) {
     const pattern = patterns[patternKey];
+
+    selectedPatternKey = patternKey;
 
     const patternSection =
       document.querySelector<HTMLDivElement>(".section-pattern");
